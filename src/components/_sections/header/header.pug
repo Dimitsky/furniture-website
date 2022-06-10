@@ -1,0 +1,10 @@
+section.header
+  .container.header__container
+    span.caption.caption--logo-header.header__logo= FurniShop
+    nav.header__nav.nav-header
+      button.hamburger.nav-header__hamburger
+        span.hamburger__item
+      ul.nav-header__list
+        each item in navList
+          li.nav-header__item
+            a.link.link--nav-header.nav-header__link( href= item.href, title= item.inner )= item.inner
