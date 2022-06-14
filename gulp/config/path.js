@@ -12,7 +12,7 @@ export const path = {
   }, 
   src: {
     assets: `${srcFolder}/assets/**/*.*`, 
-    sass: `${srcFolder}/components/_style/styles.sass`, 
+    sass: `${srcFolder}/components/_style/style.sass`, 
     pug: `${srcFolder}/components/_pages/*.pug`,
   }, 
   clean: distFolder,

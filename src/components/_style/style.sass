@@ -5,17 +5,43 @@
 :root
   --color-dark: #23262F
   
+  box-sizing: border-box
   color: black
   color: var( --color-text )
 
+*,
+::before,
+::after
+  box-sizing: inherit
+
+.list-reset
+  margin: 0
+  padding: 0
+  list-style: none
+
+.button-reset
+  border: none
+  border-radius: 0
+  padding: 0
+  background: none
+
+.visually-hidden
+  position: absolute
+  border: 0
+  width: 1px
+  height: 1px
+  margin: -1px
+  padding: 0
+  white-space: nowrap
+  clip-path: inset(100%)
+  clip: rect(0 0 0 0)
+  overflow: hidden
+
 .container
-  padding: 25px
-
-// Sections
-
+  padding: 0 25px
 
 // UI
-@import ../_ui/button/button.sass
-@import ../_ui/caption/caption.sass
-@import ../_ui/heading/heading.sass
-@import ../_ui/link/link.sass
+// @import ../_ui/button/button.sass
+
+// Sections
+@import ../_sections/header/header.sass

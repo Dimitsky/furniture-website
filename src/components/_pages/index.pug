@@ -1,0 +1,45 @@
+extends ../_layouts/defaults.pug
+
+block variables
+  -
+    let title = "Furniture website";
+    let activeMenuItem = "Home";
+    let navList = [
+      {
+        href: "#", 
+        inner: "Home", 
+      },
+      {
+        href: "#", 
+        inner: "About", 
+      },
+      {
+        href: "#", 
+        inner: "Features", 
+      },
+      {
+        href: "#", 
+        inner: "Contact", 
+      },
+    ];
+    let infoList = [
+      {
+        title: "7", 
+        desc: "Year Experience", 
+      }, 
+      {
+        title: "2", 
+        desc: "Opened in the country", 
+      }, 
+      {
+        title: "10k+", 
+        desc: "Furniture sold", 
+      }, 
+      {
+        title: "260+", 
+        desc: "Variant Furniture", 
+      }, 
+    ]
+
+block header
+  include ../_sections/header/header.pug

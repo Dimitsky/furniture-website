@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Saira";
+  src: url("../fonts/Saira-Regular.woff2") format("woff2"), url("../fonts/Saira-Regular.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Saira";
+  src: url("../fonts/Saira-Medium.woff2") format("woff2"), url("../fonts/Saira-Medium.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Saira";
+  src: url("../fonts/Saira-SemiBold.woff2") format("woff2"), url("../fonts/Saira-SemiBold.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Saira";
+  src: url("../fonts/Saira-SemiBold.woff2") format("woff2"), url("../fonts/Saira-SemiBold.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Saira";
+  src: url("../fonts/Saira-Bold.woff2") format("woff2"), url("../fonts/Saira-Bold.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Medium.woff2") format("woff2"), url("../fonts/Raleway-Medium.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/Inter-Regular.woff2") format("woff2"), url("../fonts/Inter-Regular.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+:root {
+  --color-dark: #23262F;
+  box-sizing: border-box;
+  color: black;
+  color: var(--color-text);
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.button-reset {
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  padding: 0 25px;
+}
