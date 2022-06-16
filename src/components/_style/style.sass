@@ -3,7 +3,8 @@
 
 // Root
 :root
-  --color-dark: #23262F
+  --color-main: #23262F
+  --color-light: #fff
   
   box-sizing: border-box
   color: black
@@ -41,7 +42,15 @@
   padding: 0 25px
 
 // UI
-// @import ../_ui/button/button.sass
+@import ../_ui/button/button.sass
+@import ../_ui/heading/heading.sass
+@import ../_ui/link/link.sass
+@import ../_ui/paragraph/paragraph.sass
 
 // Sections
 @import ../_sections/header/header.sass
+
+@media screen and ( min-width: 1240px )
+  .container
+    max-width: 1290px
+    margin: auto

@@ -1,0 +1,24 @@
+.button
+  text-decoration: none
+
+  &--glass
+    border-radius: .7em
+    padding: .64em 2.59em
+    color: var( --color-light )
+    font: 600 .875rem/1.5 "Saira", sans-serif
+    letter-spacing: .01em
+    background: rgba(226, 226, 226, 0.4)
+    backdrop-filter: blur( 5px )
+
+@media screen and ( min-width: 768px )
+  .button
+
+    &--glass
+      padding: 1em 5em
+
+@media screen and ( min-width: 1024px )
+  .button
+
+    &--glass
+      padding: .8em 4em
+      font-size: 1.25rem

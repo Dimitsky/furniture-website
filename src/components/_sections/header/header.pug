@@ -1,21 +1,24 @@
 section( class="header" )
   div( class="container header__container" )
     div( class="header__top" )
-      a( class="header__logo" ) FurniShop
+      a( class="link header__logo" href="#" ) FurniShop
       nav( class="header__nav nav-header" role="navigation" aria-label="Main menu")
-        button( class="nav-header__hamburger hamburger-nav-header" aria-expanded="false" aria-controls="main-menu" )
+        button( class="button-reset nav-header__hamburger hamburger-nav-header" aria-expanded="false" aria-controls="main-menu" )
           span( class="hamburger-nav-header__item" )
           span( class="visually-hidden" ) Main menu
         ul( class="list-reset nav-header__list" id="main-menu" )
           each item in navList
             li( class="nav-header__item" )
-              a( class="nav-header__link" href=item.href title=item.inner)=item.inner
+              if ( activeMenuItem == item.inner ) 
+                span( class=( "link nav-header__link active" ) )=item.inner
+              else
+                a( class="link nav-header__link" href=item.href title=item.title)=item.inner
     div( class="header__bottom" )
-      h1( class="header__heading" ) Creative Home Simpify your Furniture
-      p( class="header__paragraph" ) Do i have consent to record this meeting gain locaion, root-and-branch, review, nor game plan who’s the goto
+      h1( class="heading heading--1 header__heading" ) Creative Home Simpify Your Furniture
+      p( class="paragraph header__paragraph" ) Do i have consent to record this meeting gain locaion, root-and-branch, review, nor game plan who’s the goto
       a( class="button button--glass header__button" href="#" title="Shop Now" ) Shop Now 
       ul( class="list-reset header__info info-header" )
         each item in infoList
-          li( class="info-header__item item-info-header" )
-            h3( class="item-info-header__title" )=item.title
-            span( class="item-info-header__desc" )=item.desc
+          li( class="info-header__item" )
+            h3( class="heading info-header__title" )=item.title
+            span( class="info-header__desc" ) !{item.desc}

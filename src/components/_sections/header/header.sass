@@ -1,0 +1,270 @@
+.header
+  background: no-repeat top/cover url("../img/header/bg-1@2x-mobile.jpg")
+
+  &__container
+    position: relative
+    min-height: 660px
+
+  &__top
+    align-items: center
+    justify-content: space-between
+    padding: 30px 0
+
+    .js &
+      margin-bottom: 93px
+
+  &__bottom
+    display: flex
+    align-items: center
+    flex-direction: column
+
+  &__logo
+    color: var( --color-light )
+    font: 600 1.5rem/1.57 "Saira", sans-serif
+    text-decoration: none
+
+  &__heading, &__paragraph
+    margin-bottom: 30px
+
+  &__heading
+    max-width: 290px
+    text-align: center
+
+  &__paragraph
+    max-width: 290px
+    color: var( --color-light )
+    letter-spacing: .01em
+    text-align: center
+
+  &__button
+    margin-bottom: 159px
+
+  &__info
+    position: absolute
+    bottom: -182px
+    left: 25px
+    right: 25px
+    border-radius: 20px
+    display: grid
+    grid-template-columns: 1fr 1fr
+    gap: 62px 0
+    padding: 40px 0 49px
+    background: #286F6C
+
+.nav-header
+
+  &__hamburger
+    position: absolute
+    top: 25px
+    right: 15px
+    z-index: 10010
+    display: none
+    align-items: center
+    justify-content: center
+    height: 48px
+    width: 48px
+
+    .js &
+      display: flex
+
+  &__list
+    padding: 30px 0
+
+    .js &
+      position: absolute
+      top: -100vh
+      left: 0
+      z-index: 10000
+      height: 100vh
+      width: 100%
+      padding: 100px 25px 30px
+      text-align: center
+      background: rgba( 0, 0, 0, .9)
+      transform: translateY( 0 )
+      transition: transform .2s ease-in-out, visibility 0s .2s
+      visibility: hidden
+
+      &.open
+        transform: translateY( 100vh )
+        transition: transform .2s ease-in-out, visibility 0s 0s
+        visibility: visible
+
+  &__item:not(:last-child)
+    margin-bottom: 20px
+
+  &__link
+    display: block
+    color: var( --color-light )
+    font: 400 1.3rem/1.57 "Saira", sans-serif
+    text-decoration: none
+
+    &.active
+      font-weight: 600
+
+.info-header
+
+  &__item
+    position: relative
+    display: flex
+    align-items: center
+    flex-direction: column
+    padding: 0 29px
+
+    &:not(:nth-child(2n))
+
+      &::after
+        content: ""
+        position: absolute
+        top: 50%
+        right: 0
+        height: 60px
+        width: 1px
+        background: #fff
+        transform: translateY( -50% )
+
+  &__title
+    color: var( --color-light )
+    font: 600 1.5rem/1.2 "Saira", sans-serif
+    margin-bottom: 5px
+
+  &__desc
+    margin-top: auto
+    color: var( --color-light )
+    font: 400 .875rem/1.3 "Saira", sans-serif
+    text-align: center
+    letter-spacing: .01em
+
+.hamburger-nav-header
+
+  &__item, &__item::before, &__item::after
+    border-radius: .5em
+    height: 2px
+    background: #fff
+    transition: transform .2s ease-in-out, background-color .2s ease-in-out
+
+  &__item::before, &__item::after
+    content: ""
+    position: absolute
+    right: 0
+    width: 20px
+    transform-origin: left
+
+  &__item
+    position: relative
+    width: 16px
+    transform: translateX(4px)
+
+    [aria-expanded="true"] &
+      background-color: transparent
+      transform: translateX(-16px)
+
+  &__item::before
+    transform: translateY( -6px )
+
+    [aria-expanded="true"] &
+      transform: translate( 22px, -7px) rotate(45deg)
+
+  &__item::after
+    transform: translateY(6px)
+
+    [aria-expanded="true"] &
+      transform: translate( 22px, 7px) rotate(-45deg)
+
+@media screen and ( min-width: 768px )
+  .header
+
+    &__heading
+      max-width: 650px
+
+    &__paragraph
+      max-width: 550px
+
+    &__info
+      bottom: -82px
+      grid-template-columns: repeat( 4, 1fr )
+
+  .info-header
+
+    &__item:not(:nth-child(4n))::after
+      content: "" !important
+      position: absolute
+      top: 50%
+      right: 0px
+      height: 60px
+      width: 1px
+      background: #fff
+      transform: translateY(-50%)
+
+@media screen and ( min-width: 1024px )
+  .header
+    background: no-repeat top/cover url("../img/header/bg-1@2x-desktop.jpg")
+
+    &__container
+      min-height: 903px
+
+    &__top
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 110px !important
+      padding-left: 5px
+
+    &__logo
+      margin-left: 25px
+      font-size: 2.25rem
+      font-weight: 700
+      line-height: 1.57
+
+    &__heading
+      max-width: 890px
+    
+    &__paragraph
+      max-width: 630px
+      margin-bottom: 64px
+
+    &__info
+      bottom: -67px
+      padding: 40px 16px 37px
+
+  .nav-header
+
+    &__hamburger
+      display: none !important
+
+    &__list
+      position: static !important
+      display: flex !important
+      align-items: center !important
+      height: unset !important
+      padding: 0 50px 0 0 !important
+      background: none !important
+      visibility: visible !important
+
+    &__item:not(:last-child)
+      margin-right: 64px
+      margin-bottom: 0
+
+    &__link
+      font-size: 1rem
+      line-height: 1.58
+
+  .info-header
+
+    &__item:not(:nth-child(4n))::after
+      height: 100px
+
+    &__item
+      padding: 0 25px
+
+    &__title
+      font-size: 2.25rem
+      margin-bottom: 8px
+
+    &__desc
+      font-size: 1.25rem
+
+@media screen and ( min-width: 1240px )
+  .info-header
+
+    &__item
+      padding: 0 95px
