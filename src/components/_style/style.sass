@@ -5,6 +5,8 @@
 :root
   --color-main: #23262F
   --color-light: #fff
+  --color-link-hover: rgb(255, 127, 80)
+  --color-button-hover: rgba(255, 127, 80, .5)
   
   box-sizing: border-box
   color: black
@@ -49,8 +51,10 @@
 
 // Sections
 @import ../_sections/header/header.sass
+@import ../_sections/create/create.sass
 
 @media screen and ( min-width: 1240px )
   .container
     max-width: 1290px
-    margin: auto
+    margin-right: auto
+    margin-left: auto

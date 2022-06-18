@@ -1,0 +1,87 @@
+.create
+
+  &__container
+    margin-bottom: 100px
+
+  &__heading
+    margin-bottom: 15px
+
+  &__paragraph
+    margin-bottom: 20px
+    line-height: 1.7
+
+  &__list
+    margin-bottom: 50px
+
+  &__image-wrapper
+    border-radius: 6px
+    height: 69.1vw
+    overflow: hidden
+
+  &__image
+    display: block
+    height: 100%
+    width: 100%
+    object-fit: cover
+
+.list-create
+
+  &__item:not(:last-child)
+    margin-bottom: 22px
+
+  &__item
+    position: relative
+    padding-left: 40px
+
+    &::before
+      content: "\f058"
+      position: absolute
+      top: 0
+      left: 3px
+      color: var( --color-main )
+      font: 900 18.67px/1.5 "Font Awesome 5 Free"
+   
+  &__heading
+    margin-bottom: 10px
+
+@media screen and ( min-width: 1024px )
+  .create
+
+    &__container
+      display: flex
+      flex-direction: row-reverse
+      justify-content: space-between
+
+    &__content-wrapper
+      flex-basis: 586px
+
+    &__image-wrapper
+      flex-basis: 554px
+      height: 443px
+      margin-right: 100px
+
+    &__heading
+      max-width: 450px
+      padding-top: 9px
+
+    &__paragraph
+      margin-bottom: 38px
+
+    &__list
+      margin-bottom: 0
+
+  .list-create
+
+    &__item:not(:last-child)
+      margin-bottom: 25px
+
+    &__item
+      margin-bottom: 22px
+      padding-left: 48px
+
+      &::before
+        font-size: 24.89px
+        line-height: 1
+
+    &__heading
+      margin-bottom: 9px

@@ -1,9 +1,21 @@
 .heading
   margin: 0
+  color: var( --color-main )
+  font-family: "Saira", sans-serif
+  font-weight: 600
 
   &--1
     color: var( --color-light )
-    font: 600 1.5rem/1.2 "Saira", sans-serif
+    font-size: 1.5rem
+    line-height: 1.2
+
+  &--2
+    font-size: 1.5rem
+    line-height: 1.3
+
+  &--3
+    font-size: 1rem
+    line-height: 1.75
 
 @media screen and ( min-width: 768px )
   .heading
@@ -16,3 +28,10 @@
 
     &--1
       font-size: 4rem
+
+    &--2
+      font-size: 2.5rem
+
+    &--3
+      font-size: 1.25rem
+      line-height: 1.4

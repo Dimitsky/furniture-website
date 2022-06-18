@@ -1,6 +1,10 @@
 @import ../../_mixins/mixins.sass
 
 .link
+  transition: color .2s ease-in-out
   
   &:focus
     @include outline
+
+  &:hover:not(span.link)
+    color: var( --color-link-hover )
