@@ -1,12 +1,14 @@
 // js script подключен к странице
 document.documentElement.classList.add( 'js' );
 
+// навигация 
+let nav = document.querySelector( '#main-nav' );
 // кнопка открытия меню
 let burger = document.querySelector( '.nav-header__hamburger' );
 // меню 
 let menu = document.querySelector( '#main-menu' );
 // фокусируемые элементы в меню (ссылки)
-let focusableEls = menu.querySelectorAll( 'a[href]:not([disabled])' );
+let focusableEls = nav.querySelectorAll( 'a[href]:not([disabled]), button:not([disabled])' );
 // первая ссылка
 let firstFocusableEl = focusableEls[0];
 // последняя ссылка
@@ -18,10 +20,6 @@ function openMenu( triggerEl, menuEl ) {
   triggerEl.setAttribute( 'aria-expanded', 'true' );
   // добавить для меню класс open
   menuEl.classList.add( 'open' );
-  // установить фокус на первую ссылку меню
-  menu.querySelector( 'a[href]:not([disabled])').focus();
-  // добавить обработчик кнопки escape
-  menu.addEventListener( 'keydown', handleEscape );
 }
 
 // Закрыть меню
@@ -58,22 +56,6 @@ function handleFocusTrap( e ) {
       // прерываем действие по умолчанию
       e.preventDefault();
     }
-  }
-}
-
-// Обработчик нажатия кнопки escape
-function handleEscape( e ) {
-  // проверить нажата ли кнопка escape
-  let isEscapePressed = e.key === 'Escape';
-
-  // если нажат escape
-  if ( isEscapePressed ) {
-    // закрыть меню
-    closeMenu( burger, menu );
-    // удалить обработчик
-    menu.removeEventListener( 'keydown', handleEscape );
-    // вернуть фокус кнопке меню
-    burger.focus();
   }
 }
 
