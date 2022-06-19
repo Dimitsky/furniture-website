@@ -1,7 +1,36 @@
 @import ../../_mixins/mixins.sass
 
 .link
+  color: var( --color-main )
+  font: 500 1rem/1.6 "Saira", sans-serif
   transition: color .2s ease-in-out
+
+  &--common
+    position: relative
+    padding-right: 32px
+    letter-spacing: .01em
+    text-decoration: none
+
+    &::after
+      content: "\f178"
+      position: absolute
+      top: 50%
+      right: 0
+      font-family: "Font Awesome 5 Free"
+      font-size: 1.4em
+      font-weight: 600
+      text-decoration: none
+      transform: translateY( -50% )
+
+    &::before
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 0
+      height: 1px
+      width: calc( 100% - 32px)
+      background: var(--color-main)
+      transform: translateY( -3px )
   
   &:focus
     @include outline

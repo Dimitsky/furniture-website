@@ -1,0 +1,99 @@
+.new
+
+  &__container
+    margin-bottom: 100px
+    padding-left: max( 25px, calc( ( 100% - 1240px ) / 2 ) )
+
+  &__content-wrapper
+    display: flex
+    align-items: center
+    margin-bottom: 24px
+
+  &__heading
+    flex-basis: 124px
+    margin-right: 20px
+
+  &__paragraph
+    flex-basis: 210px
+    line-height: 1.7
+    letter-spacing: .01em
+
+  &__link
+    display: none
+
+.swiper-new
+
+  &__slide
+    width: 54.19%
+
+.slide-swiper-new
+
+  &__body
+    border-radius: 5px
+    position: relative
+    display: flex
+    align-items: flex-end
+    justify-content: center
+    height: 239px
+    padding: 30px
+    overflow: hidden
+    background: no-repeat center center/cover
+
+  &__link
+    color: var( --color-light )
+    font: 600 1.125rem/1.6 "Saira", sans-serif
+    text-align: center
+    text-decoration: none
+    cursor: pointer
+
+    &::after
+      content: ""
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      z-index: 1
+
+@media screen and ( min-width: 1024px )
+  .new
+
+    &__container
+      display: flex
+      align-items: center
+
+    &__content-wrapper
+      display: block
+      flex-basis: 280px
+      flex-shrink: 0
+      margin-right: 34px
+      margin-bottom: 20px
+
+    &__slider-wrapper
+      flex-grow: 1
+      min-width: 0
+
+    &__heading
+      max-width: 220px
+      margin-right: 0
+      margin-bottom: 89px
+
+    &__paragraph
+      margin-bottom: 49px
+
+    &__link
+      display: inline-block
+
+  .swiper-new
+
+    &__slide
+      width: 25.82%
+
+  .slide-swiper-new
+
+    &__body
+      height: 340px
+
+    &__link
+      font-size: 1.75rem
+      line-height: 1

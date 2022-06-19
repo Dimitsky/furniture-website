@@ -7,10 +7,12 @@ html( lang="en" )
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     block styles 
       link( rel="stylesheet" href="assets/css/normalize.min.css" )
+      link( rel="stylesheet" href="assets/css/swiper-bundle.min.css" )
       link( rel="stylesheet" href= app.isBuild ? "assets/css/style.min.css" : "assets/css/style.css" )
     block scripts
-      script( src="assets/js/script.js" defer )
       script( src="assets/js/awesome-font.js" )
+      script( src="assets/js/swiper-bundle.min.js" defer )
+      script( src="assets/js/script.js" defer )
     title=title
   body( class="body" )
     block header

@@ -1,6 +1,12 @@
 // js script подключен к странице
 document.documentElement.classList.add( 'js' );
 
+/*
+
+NAVIGATION
+
+*/
+
 // навигация 
 let nav = document.querySelector( '#main-nav' );
 // кнопка открытия меню
@@ -94,3 +100,19 @@ if ( document.documentElement.clientWidth < 1024 ) {
   menu.addEventListener( 'keydown', handleFocusTrap );
   burger.addEventListener( 'click', handleBurger );
 }
+
+/*
+
+SWIPER
+
+*/
+
+const swiper = new Swiper('.new__swiper', {
+  slidesPerView: "auto",
+  spaceBetween: 18,
+  breakpoints: {
+    1024: {
+      spaceBetween: 20, 
+    }
+  }
+});
