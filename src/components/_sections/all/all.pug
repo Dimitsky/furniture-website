@@ -1,0 +1,57 @@
+- 
+  //- Количество товара на странице
+  let chunkSize = 8;
+
+  function splitArray( arr ) {
+    //- Страницы для слайдера
+    let chunksArr = [];
+
+    for ( let i = 0; i < arr.length; i += chunkSize ) {
+      //- Берем chunkSize единиц товара
+      let chunk = arr.slice( i, i + chunkSize );
+
+      //- И сохраняем их в отдельную страницу ( отдельный слайд для слайдера )
+      chunksArr.push( chunk );
+    }
+
+    return chunksArr;
+  }
+
+section( class="all" )
+  div( class="container all__container" )
+    h2( class="heading heading--2 all__heading" ) All Product
+    p( class="paragraph paragraph--small all__paragraph" ) The products we provide only for you as our service are selected from the best products with number 1 quality in the world
+    div( class="swiper all__swiper swiper-all" )
+      div( class="swiper-wrapper swiper-all__wrapper" )
+        - let pageList = splitArray( productList );
+        each page in pageList
+          div( class="swiper-slide swiper-all__slide slide-swiper-all" )
+            ul( class="list-reset slide-swiper-all__list list-slide-swiper-all" )
+              each item in page
+                li( class="list-slide-swiper-all__item" )
+                  div( class="list-slide-swiper-all__image-wrapper" )
+                    a( class="list-slide-swiper-all__link", href="#" ) 
+                      picture
+                        source(
+                          type="image/webp", 
+                          srcset=`assets/img/all/${item.imgName}@2x.webp 2x, assets/img/all/${item.imgName}@1x.webp 1x`
+                        )
+                        source(
+                          type="image/jpg", 
+                          srcset=`assets/img/all/${item.imgName}@2x.jpg 2x, assets/img/all/${item.imgName}@1x.jpg 1x`
+                        )
+                        img( class="list-slide-swiper-all__image" src=`assets/img/all/${item.imgName}@1x.jpg`, alt="Product image" )
+                    button( class="fa-thin fa-plus button-reset list-slide-swiper-all__button", type="button" )
+                  div( class="list-slide-swiper-all__content-wrapper")
+                    h3( class="heading heading--3 list-slide-swiper-all__heading" )=item.title
+                    div( class="list-slide-swiper-all__price-wrapper" )
+                      span( class="list-slide-swiper-all__price" )=item.price
+                      span( class="list-slide-swiper-all__discount" )=item.discount
+      div( class="swiper-all__navigation" )
+        div( class="swiper-button-prev fa-solid fa-arrow-left swiper-all__button swiper-all__button--prev" )
+        div( class="swiper-pagination swiper-all__pagination pagination-swiper-all" )
+        div( class="swiper-button-next fa-solid fa-arrow-right swiper-all__button swiper-all__button--next" )
+  div( class="modal" )
+    div( class="modal__body" )
+      button( class="fa-solid fa-xmark button-reset modal__button", type="button", aria-label="Close the window" )
+      img( class="modal__image", src="", alt="Zoomed image" )

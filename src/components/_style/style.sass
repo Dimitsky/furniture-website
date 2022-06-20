@@ -7,6 +7,8 @@
   --color-light: #fff
   --color-link-hover: rgb(255, 127, 80)
   --color-button-hover: rgba(255, 127, 80, .5)
+  --color-product-border: rgba(16, 38, 55, .1)
+  --color-zoom-button: #D9D9D9
   
   box-sizing: border-box
   color: black
@@ -16,6 +18,9 @@
 ::before,
 ::after
   box-sizing: inherit
+
+img
+  max-width: 100%
 
 .list-reset
   margin: 0
@@ -53,6 +58,8 @@
 @import ../_sections/header/header.sass
 @import ../_sections/create/create.sass
 @import ../_sections/new/new.sass
+@import ../_sections/best/best.sass
+@import ../_sections/all/all.sass
 
 @media screen and ( min-width: 1240px )
   .container

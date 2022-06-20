@@ -1,11 +1,45 @@
 // js script подключен к странице
 document.documentElement.classList.add( 'js' );
 
+function enableFocusTrap( el ) {
+  let focusableEls = el.querySelectorAll( 'a[href]:not([disabled]), button:not([disabled])' );
+  let firstFocusableEl = focusableEls[0];
+  let lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+  function handler( e ) {
+    let isTabPressed = ( e.key === 'Tab' );
+
+    if ( !isTabPressed ) return;
+
+    if ( e.shiftKey ) {
+      if ( document.activeElement === firstFocusableEl ) {
+        lastFocusableEl.focus();
+        e.preventDefault();
+      }
+    } else {
+      if ( document.activeElement === lastFocusableEl ) {
+        firstFocusableEl.focus();
+        e.preventDefault();
+      }
+    }
+  }
+
+  el.addEventListener( 'keydown', handler );
+
+  return handler;
+}
+
+function disableFocusTrap( el, handler ) {
+  el.removeEventListener( 'keydown', handler )
+}
+
 /*
 
 NAVIGATION
 
 */
+
+let burgerFocusTrapFlag = null;
 
 // навигация 
 let nav = document.querySelector( '#main-nav' );
@@ -26,6 +60,8 @@ function openMenu( triggerEl, menuEl ) {
   triggerEl.setAttribute( 'aria-expanded', 'true' );
   // добавить для меню класс open
   menuEl.classList.add( 'open' );
+  // Включает ловушку для фокуса
+  burgerFocusTrapFlag = enableFocusTrap( nav );
 }
 
 // Закрыть меню
@@ -34,35 +70,9 @@ function closeMenu( triggerEl, menuEl ) {
   triggerEl.setAttribute( 'aria-expanded', 'false' );
   // удалить для меню класс open
   menuEl.classList.remove( 'open' );
-}
-
-// Обработчик ловушки фокуса для меню
-function handleFocusTrap( e ) {
-  // проверяет нажата ли кнопка tab
-  let isTabPressed = ( e.key === 'Tab' );
-
-  // если нажата другая кнопка, то ничего не делаем
-  if ( !isTabPressed ) return;
-
-  // если пытаемся перейти к предыдущей ссылке
-  if ( e.shiftKey ) {
-    // если это первая ссылка
-    if ( document.activeElement === firstFocusableEl ) {
-      // то переходим к последней
-      lastFocusableEl.focus();
-      // прерываем действие по умолчанию
-      e.preventDefault();
-    }
-  // иначе если пытаемся перейти к следующей ссылке
-  } else {
-    // если фокус на последней ссылке
-    if ( document.activeElement === lastFocusableEl ) {
-      // то переходим на первую
-      firstFocusableEl.focus();
-      // прерываем действие по умолчанию
-      e.preventDefault();
-    }
-  }
+  // выключает ловушку для фокуса
+  disableFocusTrap( nav, burgerFocusTrapFlag );
+  burgerFocusTrapFlag = null;
 }
 
 // обработчик открытия меню
@@ -80,12 +90,15 @@ function handleBurger( e ) {
 function handleChange( e ) {
   if ( e.matches ) {
     // отключаем обработчики для настольной версии сайта
-    menu.removeEventListener( 'keydown', handleFocusTrap );
     burger.removeEventListener( 'click', handleBurger );
+    disableFocusTrap( nav, burgerFocusTrapFlag );
   } else {
     // подключаем обработчики для мобильной версии сайта
-    menu.addEventListener( 'keydown', handleFocusTrap );
     burger.addEventListener( 'click', handleBurger );
+
+    if ( burgerFocusTrapFlag ) {
+      enableFocusTrap( nav );
+    }
   }
 }
 
@@ -97,7 +110,6 @@ mediaQuery.addListener( handleChange );
 
 // если вначале загружается мобильная версия, то подключить обработчики для гамбургера и меню
 if ( document.documentElement.clientWidth < 1024 ) {
-  menu.addEventListener( 'keydown', handleFocusTrap );
   burger.addEventListener( 'click', handleBurger );
 }
 
@@ -107,7 +119,7 @@ SWIPER
 
 */
 
-const swiper = new Swiper('.new__swiper', {
+const swiperNew = new Swiper('.new__swiper', {
   slidesPerView: "auto",
   spaceBetween: 18,
   breakpoints: {
@@ -116,3 +128,66 @@ const swiper = new Swiper('.new__swiper', {
     }
   }
 });
+
+const swiperAll = new Swiper('.all__swiper', {
+  spaceBetween: 21,
+  breakpoints: {
+    1024: {
+      spaceBetween: 27, 
+    }
+  }, 
+  pagination: {
+    el: '.swiper-all__pagination',
+    type: 'bullets',
+    bulletClass: 'pagination-swiper-all__bullet', 
+    bulletActiveClass: 'pagination-swiper-all__bullet--active', 
+    clickable: true, 
+    currentClass: 'pagination-swiper-all__bullet--current', 
+  }, 
+  navigation: {
+    nextEl: '.swiper-all__button--next',
+    prevEl: '.swiper-all__button--prev',
+  }, 
+});
+
+/*
+
+Modal window
+
+*/
+
+let modalFocusTrapFlag = null;
+let prevOpenModalButton = null;
+
+let triggerList = document.querySelectorAll( '.list-slide-swiper-all__button' );
+let modalEl = document.querySelector( '.modal' );
+let modalImageEl = modalEl.querySelector( '.modal__image' );
+let modalCloseButtonEl = modalEl.querySelector( '.modal__button' );
+let bodyEl = document.querySelector( 'body' );
+
+function handleOpenModal() {
+  let imgEl = this.closest( '.list-slide-swiper-all__image-wrapper' ).querySelector( '.list-slide-swiper-all__image' );
+  let src = imgEl.src;
+  
+  modalImageEl.src = src;
+  modalEl.style.display = 'block';
+  bodyEl.style.overflow = 'hidden';
+  modalCloseButtonEl.focus();
+  modalFocusTrapFlag = enableFocusTrap( modalEl );
+  prevOpenModalButton = this;
+}
+
+function handleCloseModal() {
+  modalImageEl.src = '';
+  modalEl.style.display = 'none';
+  bodyEl.style.overflow = '';
+  disableFocusTrap( modalEl, modalFocusTrapFlag );
+  prevOpenModalButton.focus();
+  prevOpenModalButton = null;
+}
+
+triggerList.forEach( trigger => {
+  trigger.addEventListener( 'click', handleOpenModal );
+} );
+
+modalCloseButtonEl.addEventListener( 'click', handleCloseModal );
