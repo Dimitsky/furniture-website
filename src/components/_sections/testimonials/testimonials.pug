@@ -1,0 +1,39 @@
+section( class="testimonials" )
+  div( class="container testimonials__container" )
+    h2( class="heading heading--2 testimonials__heading") What People Are Saying About Us
+    div( class="swiper testimonials__swiper swiper-testimonials" )
+      div( class="swiper-wrapper swiper-testimonials__wrapper" )
+        each item in testimonialList
+          div( class="swiper-slide swiper-testimonials__slide slide-swiper-testimonials" )
+            div( class="slide-swiper-testimonials__body" )
+              div( class="slide-swiper-testimonials__content-wrapper" )
+                div( class="slide-swiper-testimonials__user-wrapper" )
+                  div( class="slide-swiper-testimonials__photo-wrapper" )
+                    picture
+                      source(
+                        type="image/webp", 
+                        srcset=`assets/img/testimonials/${item.photoName}@2x.webp 2x, assets/img/testimonials/${item.photoName}@1x.webp 1x`
+                      )
+                      source(
+                        type="image/jpg", 
+                        srcset=`assets/img/testimonials/${item.photoName}@2x.jpg 2x, assets/img/testimonials/${item.photoName}@1x.jpg 1x`
+                      )
+                      img( class="slide-swiper-testimonials__photo" src=`assets/img/testimonials/${item.photoName}@1x.jpg`, alt="Photo" )
+                  div( class="slide-swiper-testimonials__info-wrapper" )
+                    h4( class="heading heading--4 slide-swiper-testimonials__heading" )=item.userName
+                    span( class="slide-swiper-testimonials__job" )=item.userJob
+                p( class="paragraph slide-swiper-testimonials__paragraph" )=item.text
+              div( class="slide-swiper-testimonials__image-wrapper" )
+                picture
+                  source(
+                    type="image/webp", 
+                    srcset=`assets/img/testimonials/${item.imgName}@2x.webp 2x, assets/img/testimonials/${item.imgName}@1x.webp 1x`
+                  )
+                  source(
+                    type="image/jpg", 
+                    srcset=`assets/img/testimonials/${item.imgName}@2x.jpg 2x, assets/img/testimonials/${item.imgName}@1x.jpg 1x`
+                  )
+                  img( class="slide-swiper-testimonials__image" src=`assets/img/testimonials/${item.imgName}@1x.jpg`, alt="Image" )
+      div( class="swiper-testimonials__navigation" )
+        div( class="swiper-button-prev fa-solid fa-arrow-left swiper-testimonials__button swiper-testimonials__button--prev" )
+        div( class="swiper-button-next fa-solid fa-arrow-right swiper-testimonials__button swiper-testimonials__button--next" )

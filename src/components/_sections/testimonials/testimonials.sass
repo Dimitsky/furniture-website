@@ -1,0 +1,158 @@
+
+
+.testimonials
+
+  &__container
+    margin-bottom: 50px
+
+  &__heading
+    max-width: 290px
+    margin-bottom: 33px
+
+.swiper-testimonials
+
+  &__navigation
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 25px 0 10px
+
+  &__button
+    position: relative
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    display: block !important
+    border-radius: 100px
+    height: 36px
+    width: 36px
+    margin: 0
+    font-size: .9em
+    background: var( --color-alter )
+    box-shadow: 0 1px 5px 0 rgba( 0, 0, 0, .1 )
+    transition: background .2s ease-in-out, color .2s ease-in-out
+
+    &:hover
+      background: lightgray
+
+    &:focus
+      @include outline
+
+    &::before
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate( -50%, -50% )
+      color: #fff
+
+    &::after
+      content: none
+
+    &--prev
+      margin-right: 20px
+
+    &--disabled
+      color: var( --color-main )
+      background: #fff
+
+      &::before
+        color: var( --color-main )
+  
+.slide-swiper-testimonials
+
+  &__user-wrapper
+    display: flex
+    align-items: center
+    margin-bottom: 29px
+
+  &__photo-wrapper
+    flex-shrink: 0
+    border-radius: 50%
+    height: 40px
+    width: 40px
+    margin-right: 20px
+    overflow: hidden
+
+  &__photo
+    height: 100%
+    width: 100%
+    object-fit: cover
+
+  &__heading
+    line-height: 1.6
+
+  &__job
+    color: var( --color-main )
+    font: 400 .625rem/1 "Saira", sans-serif
+    opacity: .5
+
+  &__paragraph
+    max-width: 570px
+    margin-bottom: 32px
+    line-height: 1.71
+
+  &__image-wrapper
+    border-radius: 6px
+    height: 205px
+    overflow: hidden
+
+  &__image
+    height: 100%
+    width: 100%
+    object-fit: cover
+
+@media screen and ( min-width: 1024px )
+  .testimonials
+
+    &__container
+      margin-bottom: 70px
+
+    &__heading
+      max-width: 635px
+
+  .swiper-testimonials
+
+    &__navigation
+      position: absolute
+      bottom: -9px
+      left: 4px
+      justify-content: flex-start
+
+    &__button
+      height: 50px
+      width: 50px
+      font-size: 1.2em
+
+  .slide-swiper-testimonials
+
+    &__body
+      display: flex
+      align-items: center
+      justify-content: space-between
+
+    &__content-wrapper
+      margin-right: 50px
+      padding: 83px 0px 77px
+
+    &__user-wrapper
+      margin-bottom: 29px
+
+    &__photo-wrapper
+      height: 80px
+      width: 80px
+
+    &__heading
+      line-height: 1.8
+
+    &__job
+      font-size: .875rem
+      line-height: 1
+
+    &__paragraph
+      margin-bottom: 0
+
+    &__image-wrapper
+      flex-basis: 562px
+      flex-shrink: 0
+      height: 340px

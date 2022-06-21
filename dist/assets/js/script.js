@@ -115,7 +115,7 @@ if ( document.documentElement.clientWidth < 1024 ) {
 
 /*
 
-SWIPER
+SWIPER "new"
 
 */
 
@@ -128,6 +128,12 @@ const swiperNew = new Swiper('.new__swiper', {
     }
   }
 });
+
+/*
+
+SWIPER "all"
+
+*/
 
 const swiperAll = new Swiper('.all__swiper', {
   spaceBetween: 21,
@@ -191,3 +197,19 @@ triggerList.forEach( trigger => {
 } );
 
 modalCloseButtonEl.addEventListener( 'click', handleCloseModal );
+
+/*
+
+SWIPER "testimonials"
+
+*/
+
+const swiperTestimonials = new Swiper('.testimonials__swiper', {
+  spaceBetween: 21,
+  slidesPerView: 1, 
+  navigation: {
+    nextEl: '.swiper-testimonials__button--next',
+    prevEl: '.swiper-testimonials__button--prev',
+    disabledClass: 'swiper-testimonials__button--disabled', 
+  }, 
+});

@@ -49,6 +49,7 @@
 }
 :root {
   --color-main: #23262F;
+  --color-alter: #286F6C;
   --color-light: #fff;
   --color-link-hover: rgb(255, 127, 80);
   --color-button-hover: rgba(255, 127, 80, .5);
@@ -150,6 +151,10 @@ img {
   font-size: 1rem;
   line-height: 1.75;
 }
+.heading--4 {
+  font-size: 0.875rem;
+  line-height: 1;
+}
 
 @media screen and (min-width: 768px) {
   .heading--1 {
@@ -166,6 +171,9 @@ img {
   .heading--3 {
     font-size: 1.25rem;
     line-height: 1.4;
+  }
+  .heading--4 {
+    font-size: 1.25rem;
   }
 }
 .link {
@@ -720,6 +728,9 @@ img {
     margin-bottom: 35px;
   }
 }
+.all__container {
+  margin-bottom: 90px;
+}
 .all__heading, .all__paragraph {
   text-align: center;
 }
@@ -914,6 +925,7 @@ img {
   width: 30px;
   font-size: 1.1em;
   transition: background 0.2s ease-in-out;
+  cursor: pointer;
 }
 .modal__button:hover {
   background: var(--color-button-hover);
@@ -929,6 +941,9 @@ img {
 }
 
 @media screen and (min-width: 1024px) {
+  .all__container {
+    margin-bottom: 47px;
+  }
   .all__heading, .all__paragraph {
     max-width: 540px;
     margin-right: auto;
@@ -988,6 +1003,158 @@ img {
     height: 10px;
     width: 10px;
     margin: 0 7.5px !important;
+  }
+}
+.testimonials__container {
+  margin-bottom: 50px;
+}
+.testimonials__heading {
+  max-width: 290px;
+  margin-bottom: 33px;
+}
+
+.swiper-testimonials__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0 10px;
+}
+.swiper-testimonials__button {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block !important;
+  border-radius: 100px;
+  height: 36px;
+  width: 36px;
+  margin: 0;
+  font-size: 0.9em;
+  background: var(--color-alter);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.swiper-testimonials__button:hover {
+  background: lightgray;
+}
+.swiper-testimonials__button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #000, 0 0 0 4px #fff;
+}
+.swiper-testimonials__button::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.swiper-testimonials__button::after {
+  content: none;
+}
+.swiper-testimonials__button--prev {
+  margin-right: 20px;
+}
+.swiper-testimonials__button--disabled {
+  color: var(--color-main);
+  background: #fff;
+}
+.swiper-testimonials__button--disabled::before {
+  color: var(--color-main);
+}
+
+.slide-swiper-testimonials__user-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 29px;
+}
+.slide-swiper-testimonials__photo-wrapper {
+  flex-shrink: 0;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+.slide-swiper-testimonials__photo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slide-swiper-testimonials__heading {
+  line-height: 1.6;
+}
+.slide-swiper-testimonials__job {
+  color: var(--color-main);
+  font: 400 0.625rem/1 "Saira", sans-serif;
+  opacity: 0.5;
+}
+.slide-swiper-testimonials__paragraph {
+  max-width: 570px;
+  margin-bottom: 32px;
+  line-height: 1.71;
+}
+.slide-swiper-testimonials__image-wrapper {
+  border-radius: 6px;
+  height: 205px;
+  overflow: hidden;
+}
+.slide-swiper-testimonials__image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+@media screen and (min-width: 1024px) {
+  .testimonials__container {
+    margin-bottom: 70px;
+  }
+  .testimonials__heading {
+    max-width: 635px;
+  }
+
+  .swiper-testimonials__navigation {
+    position: absolute;
+    bottom: -9px;
+    left: 4px;
+    justify-content: flex-start;
+  }
+  .swiper-testimonials__button {
+    height: 50px;
+    width: 50px;
+    font-size: 1.2em;
+  }
+
+  .slide-swiper-testimonials__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .slide-swiper-testimonials__content-wrapper {
+    margin-right: 50px;
+    padding: 83px 0px 77px;
+  }
+  .slide-swiper-testimonials__user-wrapper {
+    margin-bottom: 29px;
+  }
+  .slide-swiper-testimonials__photo-wrapper {
+    height: 80px;
+    width: 80px;
+  }
+  .slide-swiper-testimonials__heading {
+    line-height: 1.8;
+  }
+  .slide-swiper-testimonials__job {
+    font-size: 0.875rem;
+    line-height: 1;
+  }
+  .slide-swiper-testimonials__paragraph {
+    margin-bottom: 0;
+  }
+  .slide-swiper-testimonials__image-wrapper {
+    flex-basis: 562px;
+    flex-shrink: 0;
+    height: 340px;
   }
 }
 @media screen and (min-width: 1240px) {
