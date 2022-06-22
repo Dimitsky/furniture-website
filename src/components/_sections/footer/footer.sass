@@ -1,0 +1,130 @@
+.footer
+  background: var( --color-main )
+
+  &__container
+    padding-top: 39px
+    padding-bottom: 14px
+
+  &__top
+    position: relative
+    margin-bottom: 23px
+
+    &::after
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 50%
+      height: 1px
+      width: 92%
+      background: none
+      transform: translateX( -50% )
+
+  &__bottom
+    display: grid
+    grid-template-columns: repeat( auto-fill, minmax( 130px,auto ) )
+    grid-gap: 65px 60px
+    margin-bottom: 100px
+    padding: 0 5px
+
+  &__logo
+    display: inline-block
+    margin-bottom: 20px
+    color: var( --color-light )
+    font: 700 1.5rem/1.174 "Raleway", sans-serif
+    letter-spacing: .02em
+    text-decoration: none
+
+  &__heading
+    margin-bottom: 25px
+    color: var( --color-light )
+    font: 500 1.125rem/1.174 "Raleway", sans-
+    
+  &__copy
+    margin: 0
+    color: var( --color-light )
+    font: 400 .75rem/1.667 "Inter", sans-serif
+    text-align: center
+
+.social-footer
+
+  &__list
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+
+.list-social-footer
+
+  &__item:not(:last-child)
+    margin-right: 25px
+
+  &__item
+    border-radius: 50%
+    display: flex
+    height: 48px
+    width: 48px
+    margin-bottom: 25px
+    color: var( --color-light )
+    background: #393C44
+
+  &__link
+    position: relative
+    border-radius: 50%
+    height: 100%
+    width: 100%
+    color: var( --color-light )
+    font-size: .9rem
+    text-decoration: none
+
+    &::before
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+.list-footer
+
+  &__item:not(:last-child)
+    margin-bottom: 20px
+
+  &__link
+    color: var( --color-light )
+    font: 400 .875rem/1.428 "Inter", sans-serif
+    text-decoration: none
+
+@media screen and ( min-width: 1024px )
+  .footer
+
+    &__container
+      padding-top: 55px
+      padding-bottom: 18px
+
+    &__top
+      display: flex
+      align-items: center
+      justify-content: space-between
+      margin-bottom: 64px
+      padding: 0 50px 50px
+
+      &::after
+        background: #EAEEF3
+
+    &__bottom
+      grid-template-columns: repeat( 5, auto )
+      grid-gap: 25px 65px
+      justify-content: space-between
+      margin-bottom: 68px
+      padding: 0 50px
+
+    &__logo
+      margin-bottom: 0
+
+    &__copy
+      font-size: .875rem
+
+  .list-social-footer
+    
+    &__item:not(:last-child)
+      margin-right: 16px
+
+    &__item
+      margin-bottom: 0
