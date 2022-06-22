@@ -207,6 +207,7 @@ SWIPER "testimonials"
 const swiperTestimonials = new Swiper('.testimonials__swiper', {
   spaceBetween: 21,
   slidesPerView: 1, 
+  autoHeight: true, 
   navigation: {
     nextEl: '.swiper-testimonials__button--next',
     prevEl: '.swiper-testimonials__button--prev',

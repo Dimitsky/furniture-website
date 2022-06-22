@@ -101,10 +101,12 @@ img {
 }
 
 .button {
+  max-width: 15em;
   color: var(--color-light);
   font-family: "saira", sans-serif;
   font-weight: 600;
   text-decoration: none;
+  cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 .button:hover {
@@ -1226,9 +1228,6 @@ img {
   flex-grow: 1;
   margin-right: 15px;
 }
-.form-mailing-list__button {
-  flex-shrink: 0;
-}
 .form-mailing-list__error {
   position: absolute;
   top: calc(100% + 1em);
@@ -1398,7 +1397,7 @@ img {
   }
   .footer__bottom {
     grid-template-columns: repeat(5, auto);
-    grid-gap: 25px 65px;
+    grid-gap: 65px;
     justify-content: space-between;
     margin-bottom: 68px;
     padding: 0 50px;
