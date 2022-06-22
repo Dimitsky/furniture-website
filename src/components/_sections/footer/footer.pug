@@ -1,0 +1,18 @@
+footer( class="footer" )
+  div( class="container footer__container")
+    div( class="footer__top" )
+      a( class="footer__logo" href="index.html" title="Home page" ) FurniShop
+      address( class="footer__social social-footer" )
+        ul( class="list-reset social-footer__list list-social-footer" )
+          each item in socialList
+            li( class="list-social-footer__item" )
+              a( class=`${item.fontClass} list-social-footer__link` href=`${item.href}` title=`${item.title}` )
+    div( class="footer__bottom" )
+      each item in footerList
+        div( class="footer__box" )
+          h3( class="heading footer__heading" )=item.heading
+          ul( class="list-reset footer__list list-footer")
+            each link in item.linkList
+              li( class="list-footer__item")
+                a( class="list-footer__link" href=`${link.href}` )=link.inner
+    p( class="footer__copy") © NameBrand 2022 - All Rights Reserved
