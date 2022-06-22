@@ -101,6 +101,9 @@ img {
 }
 
 .button {
+  color: var(--color-light);
+  font-family: "saira", sans-serif;
+  font-weight: 600;
   text-decoration: none;
   transition: background-color 0.2s ease-in-out;
 }
@@ -114,11 +117,18 @@ img {
 .button--glass {
   border-radius: 0.7em;
   padding: 0.64em 2.59em;
-  color: var(--color-light);
-  font: 600 0.875rem/1.5 "Saira", sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
   letter-spacing: 0.01em;
   background: rgba(226, 226, 226, 0.4);
   backdrop-filter: blur(5px);
+}
+.button--common {
+  border-radius: 8px;
+  padding: 1.16em 2em;
+  font-size: 0.75rem;
+  line-height: 1;
+  background: var(--color-main);
 }
 
 @media screen and (min-width: 768px) {
@@ -129,6 +139,10 @@ img {
 @media screen and (min-width: 1024px) {
   .button--glass {
     padding: 0.8em 4em;
+    font-size: 1.25rem;
+  }
+  .button--common {
+    padding: 1em 1.43em;
     font-size: 1.25rem;
   }
 }
@@ -238,6 +252,25 @@ img {
   .paragraph--small {
     font-size: 1rem;
     line-height: 1.75;
+  }
+}
+.input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #000, 0 0 0 4px #fff;
+}
+.input--text {
+  border: none;
+  border-radius: 6px;
+  margin-right: 15px;
+  padding: 0.86em 1.7em;
+  font: 400 0.75rem/1 "Saira", sans-serif;
+  background: #fff;
+}
+
+@media screen and (min-width: 1024px) {
+  .input--text {
+    padding: 1.07em 1.5em;
+    font-size: 1rem;
   }
 }
 .header {
@@ -1006,7 +1039,7 @@ img {
   }
 }
 .testimonials__container {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 .testimonials__heading {
   max-width: 290px;
@@ -1107,7 +1140,7 @@ img {
 
 @media screen and (min-width: 1024px) {
   .testimonials__container {
-    margin-bottom: 70px;
+    margin-bottom: 68px;
   }
   .testimonials__heading {
     max-width: 635px;
@@ -1155,6 +1188,106 @@ img {
     flex-basis: 562px;
     flex-shrink: 0;
     height: 340px;
+  }
+}
+.mailing-list {
+  background: no-repeat center center/cover url("../img/mailing-list/b-1-mobile@2x.jpg");
+  background-color: var(--color-alter);
+}
+.mailing-list__container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.mailing-list__wrapper {
+  max-width: 558px;
+  margin: auto;
+}
+.mailing-list__heading, .mailing-list__paragraph {
+  max-width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  color: var(--color-light);
+  text-align: center;
+}
+.mailing-list__heading {
+  margin-bottom: 18px;
+  text-transform: capitalize;
+}
+.mailing-list__paragraph {
+  margin-bottom: 29px;
+}
+
+.form-mailing-list__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.form-mailing-list__input {
+  flex-grow: 1;
+  margin-right: 15px;
+}
+.form-mailing-list__button {
+  flex-shrink: 0;
+}
+.form-mailing-list__error {
+  position: absolute;
+  top: calc(100% + 1em);
+  left: 2%;
+  border-radius: 6px;
+  display: none;
+  padding: 0.5em;
+  color: red;
+  font: 400 0.875rem/1 "Saira", sans-serif;
+  background: var(--color-light);
+}
+.form-mailing-list__error::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 20px;
+  height: 10px;
+  width: 10px;
+  background: var(--color-light);
+  transform: rotate(45deg);
+}
+.form-mailing-list__error.visible {
+  display: inline-block;
+}
+
+@media screen and (min-width: 1024px) {
+  .mailing-list {
+    background-image: url("../img/mailing-list/b-1-desktop@2x.jpg");
+  }
+  .mailing-list__container {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 100px;
+    padding-bottom: 142px;
+  }
+  .mailing-list__wrapper {
+    flex-grow: 1;
+    margin: 0 22px 0 0;
+  }
+  .mailing-list__heading, .mailing-list__paragraph {
+    max-width: 400px;
+    margin-right: 0;
+    margin-left: 0;
+    text-align: left;
+  }
+  .mailing-list__heading {
+    margin-bottom: 16px;
+    line-height: 1.35;
+    text-transform: none;
+  }
+  .mailing-list__paragraph {
+    margin-bottom: 35px;
+  }
+
+  .form-mailing-list__input {
+    margin-right: 23px;
+  }
+  .form-mailing-list__error {
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 1240px) {

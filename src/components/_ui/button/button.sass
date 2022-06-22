@@ -1,6 +1,9 @@
 @import ../../_mixins/mixins.sass
   
 .button
+  color: var( --color-light )
+  font-family: "saira", sans-serif
+  font-weight: 600
   text-decoration: none
   transition: background-color .2s ease-in-out
 
@@ -13,11 +16,18 @@
   &--glass
     border-radius: .7em
     padding: .64em 2.59em
-    color: var( --color-light )
-    font: 600 .875rem/1.5 "Saira", sans-serif
+    font-size: .875rem
+    line-height: 1.5
     letter-spacing: .01em
     background: rgba(226, 226, 226, 0.4)
     backdrop-filter: blur( 5px )
+
+  &--common
+    border-radius: 8px
+    padding: 1.16em 2em
+    font-size: .75rem
+    line-height: 1
+    background: var( --color-main)
 
 @media screen and ( min-width: 768px )
   .button
@@ -30,4 +40,8 @@
 
     &--glass
       padding: .8em 4em
+      font-size: 1.25rem
+
+    &--common
+      padding: 1em 1.43em
       font-size: 1.25rem

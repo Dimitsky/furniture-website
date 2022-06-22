@@ -1,0 +1,21 @@
+@import ../../_mixins/mixins.sass
+
+.input
+
+  &:focus
+    @include outline
+
+  &--text
+    border: none
+    border-radius: 6px
+    margin-right: 15px
+    padding: .86em 1.7em
+    font: 400 .75rem/1 "Saira", sans-serif
+    background: #fff
+
+@media screen and ( min-width: 1024px )
+  .input
+
+    &--text
+      padding: 1.07em 1.5em
+      font-size: 1rem

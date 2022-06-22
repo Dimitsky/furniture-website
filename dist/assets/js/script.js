@@ -213,3 +213,39 @@ const swiperTestimonials = new Swiper('.testimonials__swiper', {
     disabledClass: 'swiper-testimonials__button--disabled', 
   }, 
 });
+
+/*
+
+Валидация формы
+
+*/
+
+let formEl = document.querySelector( '.mailing-list__form' );
+let emailEl = document.querySelector( '#user-email' );
+let errorEl = document.querySelector( '.form-mailing-list__error' );
+
+function showError() {
+  if ( emailEl.validity.valueMissing ) {
+    errorEl.classList.add( 'visible' );
+    errorEl.textContent = 'Please enter email';
+  } else if ( emailEl.validity.typeMismatch ) {
+    errorEl.classList.add( 'visible' );
+    errorEl.textContent = 'Please enter valid email';
+  }
+}
+
+emailEl.addEventListener( 'input', () => {
+  if ( emailEl.validity.valid ) {
+    errorEl.classList.remove( 'visible' );
+    errorEl.textContent = '';
+  } else {
+    showError();
+  }
+} );
+
+formEl.addEventListener( 'submit', ( e ) => {
+  if ( !emailEl.validity.valid ) {
+    showError();
+    e.preventDefault();
+  }
+} );

@@ -1,0 +1,99 @@
+.mailing-list
+  background: no-repeat center center/cover url( "../img/mailing-list/b-1-mobile@2x.jpg" )
+  background-color: var( --color-alter )
+
+  &__container
+    padding-top: 40px
+    padding-bottom: 40px
+
+  &__wrapper
+    max-width: 558px
+    margin: auto
+
+  &__heading, &__paragraph
+    max-width: 300px
+    margin-right: auto
+    margin-left: auto
+    color: var( --color-light )
+    text-align: center
+
+  &__heading
+    margin-bottom: 18px
+    text-transform: capitalize
+
+  &__paragraph
+    margin-bottom: 29px
+
+.form-mailing-list
+
+  &__wrapper
+    position: relative
+    display: flex
+    justify-content: space-between
+  
+  &__input
+    flex-grow: 1
+    margin-right: 15px
+
+  &__button
+    flex-shrink: 0
+
+  &__error
+    position: absolute
+    top: calc( 100% + 1em)
+    left: 2%
+    border-radius: 6px
+    display: none
+    padding: .5em
+    color: red
+    font: 400 .875rem/1 "Saira", sans-serif
+    background: var( --color-light )
+
+    &::before
+      content: ""
+      position: absolute
+      top: -5px
+      left: 20px
+      height: 10px
+      width: 10px
+      background: var( --color-light )
+      transform: rotate( 45deg )
+
+    &.visible
+      display: inline-block
+
+@media screen and ( min-width: 1024px )
+  .mailing-list
+    background-image: url( "../img/mailing-list/b-1-desktop@2x.jpg" )
+
+    &__container
+      display: flex
+      justify-content: flex-end
+      padding-top: 100px
+      padding-bottom: 142px
+
+    &__wrapper
+      flex-grow: 1
+      margin: 0 22px 0 0
+
+    &__heading, &__paragraph
+      max-width: 400px
+      margin-right: 0
+      margin-left: 0
+      text-align: left
+
+    &__heading
+      margin-bottom: 16px
+      line-height: 1.35
+      text-transform: none
+
+    &__paragraph
+      margin-bottom: 35px
+
+  .form-mailing-list
+
+    &__input
+      margin-right: 23px
+
+    &__error
+      font-size: 1rem
